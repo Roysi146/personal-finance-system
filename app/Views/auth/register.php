@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Personal Finance</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body { background-color: #f8f9fa; }
+        .auth-wrapper { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .auth-card { width: 100%; max-width: 450px; }
+    </style>
+</head>
+<body>
+
+    <div class="container auth-wrapper py-5">
+        <div class="auth-card">
+            
+            <div class="text-center mb-4">
+                <h2 class="fw-bold text-primary"><i class="bi bi-wallet2 me-2"></i>Finance Manager</h2>
+                <p class="text-muted">Buat akun baru untuk mulai mencatat keuangan</p>
+            </div>
+
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body p-4">
+                    
+                    <?php if(isset($validation)):?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>Gagal mendaftar:
+                            <ul class="mb-0 mt-2">
+                                <?= $validation->listErrors() ?>
+                            </ul>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif;?>
+
+                    <form action="/register/store" method="post">
+                        <div class="mb-3">
+                            <label for="name" class="form-label fw-semibold">Nama Lengkap</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-person text-muted"></i></span>
+                                <input type="text" name="name" class="form-control border-start-0" id="name" value="<?= set_value('name') ?>" placeholder="Masukkan nama Anda" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-envelope text-muted"></i></span>
+                                <input type="email" name="email" class="form-control border-start-0" id="email" value="<?= set_value('email') ?>" placeholder="nama@email.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="password" class="form-label fw-semibold">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-lock text-muted"></i></span>
+                                <input type="password" name="password" class="form-control border-start-0" id="password" placeholder="Minimal 6 karakter" required>
+                            </div>
+                        </div>
+
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-primary py-2 fw-bold"><i class="bi bi-person-plus me-2"></i>Daftar Akun</button>
+                        </div>
+                    </form>
+
+                    <div class="text-center mt-4">
+                        <span class="text-muted">Sudah punya akun? </span>
+                        <a href="/login" class="text-decoration-none fw-semibold">Masuk di sini</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
