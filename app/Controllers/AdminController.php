@@ -17,7 +17,7 @@ class AdminController extends BaseController
 
         // Proteksi 2: Harus memiliki role 'admin'
         if (session()->get('role') !== 'admin') {
-            session()->setFlashdata('error', 'Akses ditolak. Anda bukan Admin.');
+            session()->setFlashdata('error', 'Access denied. You are not an Admin.');
             return redirect()->to('/dashboard');
         }
 

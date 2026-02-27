@@ -19,7 +19,7 @@
             
             <div class="text-center mb-4">
                 <h2 class="fw-bold text-primary"><i class="bi bi-wallet2 me-2"></i>Finance Manager</h2>
-                <p class="text-muted">Masuk ke akun Anda</p>
+                <p class="text-muted">Login to account</p>
             </div>
 
             <div class="card shadow-sm border-0 rounded-4">
@@ -37,7 +37,7 @@
                             <label for="email" class="form-label fw-semibold">Email</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-white"><i class="bi bi-envelope text-muted"></i></span>
-                                <input type="email" name="email" class="form-control border-start-0" id="email" value="<?= set_value('email') ?>" placeholder="nama@email.com" required>
+                                <input type="email" name="email" class="form-control border-start-0" id="email" value="<?= set_value('email') ?>" placeholder="name@email.com" required>
                             </div>
                         </div>
                         
@@ -45,7 +45,7 @@
                             <label for="password" class="form-label fw-semibold">Password</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-white"><i class="bi bi-lock text-muted"></i></span>
-                                <input type="password" name="password" class="form-control border-start-0" id="password" placeholder="Masukkan password" required>
+                                <input type="password" name="password" class="form-control border-start-0" id="password" placeholder="Enter password" required>
                             </div>
                         </div>
 
@@ -55,8 +55,8 @@
                     </form>
 
                     <div class="text-center mt-4">
-                        <span class="text-muted">Belum punya akun? </span>
-                        <a href="/register" class="text-decoration-none fw-semibold">Daftar sekarang</a>
+                        <span class="text-muted">Don't have the account? </span>
+                        <a href="/register" class="text-decoration-none fw-semibold">Register now</a>
                     </div>
                 </div>
             </div>

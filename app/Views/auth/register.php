@@ -19,7 +19,7 @@
             
             <div class="text-center mb-4">
                 <h2 class="fw-bold text-primary"><i class="bi bi-wallet2 me-2"></i>Finance Manager</h2>
-                <p class="text-muted">Buat akun baru untuk mulai mencatat keuangan</p>
+                <p class="text-muted">Create a new account to start recording finances</p>
             </div>
 
             <div class="card shadow-sm border-0 rounded-4">
@@ -27,7 +27,7 @@
                     
                     <?php if(isset($validation)):?>
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <i class="bi bi-exclamation-triangle-fill me-2"></i>Gagal mendaftar:
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>Failed to create account.:
                             <ul class="mb-0 mt-2">
                                 <?= $validation->listErrors() ?>
                             </ul>
@@ -37,10 +37,10 @@
 
                     <form action="/register/store" method="post">
                         <div class="mb-3">
-                            <label for="name" class="form-label fw-semibold">Nama Lengkap</label>
+                            <label for="name" class="form-label fw-semibold">Full Name</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-white"><i class="bi bi-person text-muted"></i></span>
-                                <input type="text" name="name" class="form-control border-start-0" id="name" value="<?= set_value('name') ?>" placeholder="Masukkan nama Anda" required>
+                                <input type="text" name="name" class="form-control border-start-0" id="name" value="<?= set_value('name') ?>" placeholder="Enter your full name" required>
                             </div>
                         </div>
 
@@ -48,7 +48,7 @@
                             <label for="email" class="form-label fw-semibold">Email</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-white"><i class="bi bi-envelope text-muted"></i></span>
-                                <input type="email" name="email" class="form-control border-start-0" id="email" value="<?= set_value('email') ?>" placeholder="nama@email.com" required>
+                                <input type="email" name="email" class="form-control border-start-0" id="email" value="<?= set_value('email') ?>" placeholder="name@email.com" required>
                             </div>
                         </div>
                         
@@ -56,18 +56,18 @@
                             <label for="password" class="form-label fw-semibold">Password</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-white"><i class="bi bi-lock text-muted"></i></span>
-                                <input type="password" name="password" class="form-control border-start-0" id="password" placeholder="Minimal 6 karakter" required>
+                                <input type="password" name="password" class="form-control border-start-0" id="password" placeholder="Enter password (minimum 6 characters)" required>
                             </div>
                         </div>
 
                         <div class="d-grid mb-3">
-                            <button type="submit" class="btn btn-primary py-2 fw-bold"><i class="bi bi-person-plus me-2"></i>Daftar Akun</button>
+                            <button type="submit" class="btn btn-primary py-2 fw-bold"><i class="bi bi-person-plus me-2"></i>Create Account</button>
                         </div>
                     </form>
 
                     <div class="text-center mt-4">
-                        <span class="text-muted">Sudah punya akun? </span>
-                        <a href="/login" class="text-decoration-none fw-semibold">Masuk di sini</a>
+                        <span class="text-muted">Already have an account? </span>
+                        <a href="/login" class="text-decoration-none fw-semibold">Login here</a>
                     </div>
                 </div>
             </div>

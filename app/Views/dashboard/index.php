@@ -23,12 +23,12 @@
                 <ul class="navbar-nav align-items-center">
                     <?php if(session()->get('role') === 'admin'): ?>
                         <li class="nav-item">
-                            <a href="/admin" class="nav-link text-warning fw-bold"><i class="bi bi-shield-lock me-1"></i>Admin Panel</a>
+                            <a href="/admin" class="nav-link text-warning fw-bold"><i class="bi bi-shield-lock me-1"></i>Admin panel</a>
                         </li>
                     <?php endif; ?>
                     <li class="nav-item">
                         <span class="navbar-text text-white mx-3">
-                            <i class="bi bi-person-circle me-1"></i> Halo, <?= esc($name) ?>!
+                            <i class="bi bi-person-circle me-1"></i> Hello, <?= esc($name) ?>!
                         </span>
                     </li>
                     <li class="nav-item">
@@ -60,7 +60,7 @@
                 <div class="card bg-primary text-white shadow-sm card-hover border-0">
                     <div class="card-body d-flex justify-content-between align-items-center">
                         <div>
-                            <h6 class="text-uppercase mb-1 opacity-75">Total Saldo</h6>
+                            <h6 class="text-uppercase mb-1 opacity-75">Total Revenue</h6>
                             <h3 class="mb-0 fw-bold">Rp <?= number_format($balance, 0, ',', '.') ?></h3>
                         </div>
                         <i class="bi bi-bank icon-lg"></i>
@@ -71,7 +71,7 @@
                 <div class="card bg-success text-white shadow-sm card-hover border-0">
                     <div class="card-body d-flex justify-content-between align-items-center">
                         <div>
-                            <h6 class="text-uppercase mb-1 opacity-75">Pemasukan</h6>
+                            <h6 class="text-uppercase mb-1 opacity-75">Income</h6>
                             <h3 class="mb-0 fw-bold">Rp <?= number_format($totalIncome, 0, ',', '.') ?></h3>
                         </div>
                         <i class="bi bi-arrow-down-circle icon-lg"></i>
@@ -82,7 +82,7 @@
                 <div class="card bg-danger text-white shadow-sm card-hover border-0">
                     <div class="card-body d-flex justify-content-between align-items-center">
                         <div>
-                            <h6 class="text-uppercase mb-1 opacity-75">Pengeluaran</h6>
+                            <h6 class="text-uppercase mb-1 opacity-75">Expense</h6>
                             <h3 class="mb-0 fw-bold">Rp <?= number_format($totalExpense, 0, ',', '.') ?></h3>
                         </div>
                         <i class="bi bi-arrow-up-circle icon-lg"></i>
@@ -93,9 +93,9 @@
 
         <div class="card shadow border-0 rounded-3 mb-5">
             <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center border-bottom">
-                <h5 class="m-0 fw-bold text-secondary"><i class="bi bi-clock-history me-2"></i>Riwayat Transaksi</h5>
+                <h5 class="m-0 fw-bold text-secondary"><i class="bi bi-clock-history me-2"></i>Transaction History</h5>
                 <a href="/transaction/create" class="btn btn-primary btn-sm fw-bold">
-                    <i class="bi bi-plus-lg me-1"></i> Tambah Transaksi
+                    <i class="bi bi-plus-lg me-1"></i> Add Transaction
                 </a>
             </div>
             <div class="card-body p-0">
@@ -103,11 +103,11 @@
                     <table class="table table-hover align-middle mb-0">
                         <thead class="table-light">
                             <tr>
-                                <th class="ps-4">Tanggal</th>
-                                <th>Deskripsi</th>
-                                <th>Jenis</th>
-                                <th>Jumlah</th>
-                                <th class="text-center">Aksi</th>
+                                <th class="ps-4">Date</th>
+                                <th>Description</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -115,7 +115,7 @@
                                 <tr>
                                     <td colspan="5" class="text-center py-5 text-muted">
                                         <i class="bi bi-inbox fs-1 d-block mb-2"></i>
-                                        Belum ada data transaksi. Mulai catat keuanganmu!
+                                        There's no transaction data yet. Start recording your finances!
                                     </td>
                                 </tr>
                             <?php else: ?>
@@ -125,9 +125,9 @@
                                         <td class="fw-semibold text-secondary"><?= esc($t['description']) ?></td>
                                         <td>
                                             <?php if($t['type'] === 'income'): ?>
-                                                <span class="badge bg-success-subtle text-success border border-success px-2 py-1"><i class="bi bi-arrow-down me-1"></i>Pemasukan</span>
+                                                <span class="badge bg-success-subtle text-success border border-success px-2 py-1"><i class="bi bi-arrow-down me-1"></i>Income</span>
                                             <?php else: ?>
-                                                <span class="badge bg-danger-subtle text-danger border border-danger px-2 py-1"><i class="bi bi-arrow-up me-1"></i>Pengeluaran</span>
+                                                <span class="badge bg-danger-subtle text-danger border border-danger px-2 py-1"><i class="bi bi-arrow-up me-1"></i>Expense</span>
                                             <?php endif; ?>
                                         </td>
                                         <td class="<?= $t['type'] === 'income' ? 'text-success' : 'text-danger' ?> fw-bold">

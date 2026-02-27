@@ -24,6 +24,7 @@ class AuthController extends BaseController
         $session = session();
         $userModel = new UserModel();
 
+        // Get email and password from request
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
 

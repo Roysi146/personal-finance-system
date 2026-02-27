@@ -86,12 +86,12 @@ class TransactionController extends BaseController
 
         // Check if transaction exists and belongs to the logged-in user
         if (!$transaction || $transaction['user_id'] != session()->get('id')) {
-            session()->setFlashdata('error', 'Akses ditolak.');
+            session()->setFlashdata('error', 'Access denied.');
             return redirect()->to('/dashboard');
         }
 
         $data = [
-            'title'       => 'Edit Transaksi - Personal Finance',
+            'title'       => 'Edit Transaction - Personal Finance',
             'transaction' => $transaction
         ];
 
@@ -128,7 +128,7 @@ class TransactionController extends BaseController
             
             $transactionModel->update($id, $data);
             
-            session()->setFlashdata('success', 'Transaksi berhasil diperbarui!');
+            session()->setFlashdata('success', 'Transaction updated successfully!');
             return redirect()->to('/dashboard');
         } else {
             // If validation fails, return to the edit form with validation errors

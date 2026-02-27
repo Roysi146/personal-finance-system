@@ -26,8 +26,8 @@
         <div class="card shadow-sm border-0 border-top border-warning border-4">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="m-0">Daftar Pengguna Sistem</h4>
-                    <a href="/dashboard" class="btn btn-secondary btn-sm">Kembali ke Dashboard</a>
+                    <h4 class="m-0">System User List</h4>
+                    <a href="/dashboard" class="btn btn-secondary btn-sm">Back to Dashboard</a>
                 </div>
                 
                 <div class="table-responsive">
@@ -35,10 +35,10 @@
                         <thead class="table-light">
                             <tr>
                                 <th>ID</th>
-                                <th>Nama</th>
+                                <th>Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
-                                <th>Tanggal Mendaftar</th>
+                                <th>Registration Date</th>
                             </tr>
                         </thead>
                         <tbody>
