@@ -55,7 +55,7 @@
                                 <label for="amount" class="form-label fw-semibold"><i class="bi bi-cash me-1"></i>Amount</label>
                                 <div class="input-group">
                                     <span class="input-group-text fw-bold text-secondary">Rp</span>
-                                    <input type="number" name="amount" class="form-control" id="amount" value="<?= set_value('amount', $transaction['amount']) ?>" required>
+                                    <input type="text" inputmode="numeric" name="amount" class="form-control" id="amount" value="<?= set_value('amount', $transaction['amount']) ?>" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                                 </div>
                             </div>
 

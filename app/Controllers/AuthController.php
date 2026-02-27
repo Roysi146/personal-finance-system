@@ -45,6 +45,7 @@ class AuthController extends BaseController
                     'isLoggedIn' => TRUE
                 ];
                 $session->set($ses_data);
+                session()->setFlashdata('success', 'Login successful! Welcome back, ' . $data['name'] . '.');
                 return redirect()->to('/dashboard');
             } else {
                 $session->setFlashdata('msg', 'Wrong Password');
@@ -65,7 +66,7 @@ class AuthController extends BaseController
     {
         // Validation rules for registration form
         $rules = [
-            'name' => 'required|min_length[3]|max_length[50]',
+            'name' => 'required|alpha_space|min_length[3]|max_length[50]',
             'email' => 'required|min_length[6]|max_length[50]|valid_email|is_unique[users.email]',
             'password' => 'required|min_length[6]|max_length[200]',
         ];
@@ -79,7 +80,21 @@ class AuthController extends BaseController
                 'role' => 'user' // default role for new users
             ];
             $userModel->save($data);
-            return redirect()->to('/login');
+            $userId = $userModel->getInsertID(); // Get the ID of the newly created user
+
+            // Set session data for the new user
+            $ses_data = [
+                'id' => $userId,
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'role' => $data['role'],
+                'isLoggedIn' => TRUE
+            ];
+            session()->set($ses_data);
+
+            // Set flashdata success message and redirect to dashboard
+            session()->setFlashdata('success', 'Account created successfully! Welcome.');
+            return redirect()->to('/dashboard');
         } else {
             $data['validation'] = $this->validator;
             return view('auth/register', $data);  

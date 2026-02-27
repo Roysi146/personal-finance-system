@@ -27,7 +27,7 @@
                     
                     <?php if(isset($validation)):?>
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <i class="bi bi-exclamation-triangle-fill me-2"></i>Failed to create account.:
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>Failed to create account:
                             <ul class="mb-0 mt-2">
                                 <?= $validation->listErrors() ?>
                             </ul>

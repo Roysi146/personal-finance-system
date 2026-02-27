@@ -25,7 +25,7 @@ class TransactionController extends BaseController
 
     //Process form submission to store a new transaction into the database
     public function store()
-    {        if (!session()->get('isLoggedIn')) return redirect()->to('/login');
+    {   if (!session()->get('isLoggedIn')) return redirect()->to('/login');
 
         $rules = [
             'type' => 'required|in_list[income,expense]',
@@ -40,7 +40,7 @@ class TransactionController extends BaseController
             $data = [
                 'user_id' => session()->get('id'), // Take user_id from session
                 'type' => $this->request->getVar('type'),
-                'amount' => $this->request->getVar('amount'),
+                'amount' => str_replace(',', '', $this->request->getVar('amount')),
                 'date' => $this->request->getVar('date'),
                 'description' => $this->request->getVar('description')
             ];
@@ -121,7 +121,7 @@ class TransactionController extends BaseController
 
             $data = [
                 'type'        => $this->request->getVar('type'),
-                'amount'      => $this->request->getVar('amount'),
+                'amount'      => str_replace(',', '', $this->request->getVar('amount')),
                 'date'        => $this->request->getVar('date'),
                 'description' => $this->request->getVar('description')
             ];
