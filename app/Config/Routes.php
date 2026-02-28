@@ -25,3 +25,11 @@ $routes->post('/transaction/update/(:num)', 'TransactionController::update/$1');
 
 // Route khusus Admin
 $routes->get('/admin', 'AdminController::index');
+
+// Route untuk password reset
+$routes->get('/forgot', 'AuthController::forgot');
+$routes->post('/forgot/send', 'AuthController::sendResetLink');
+
+// Routes untuk Eksekusi Reset Password
+$routes->get('/reset/(:any)', 'AuthController::reset/$1');
+$routes->post('/reset/update', 'AuthController::updatePassword');

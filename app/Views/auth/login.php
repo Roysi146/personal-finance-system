@@ -32,6 +32,20 @@
                         </div>
                     <?php endif;?>
 
+                    <?php if(session()->getFlashdata('success')):?>
+                        <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+                            <i class="bi bi-check-circle-fill me-2"></i><?= session()->getFlashdata('success') ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif;?>
+
+                    <?php if(session()->getFlashdata('error')):?>
+                        <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i><?= session()->getFlashdata('error') ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif;?>
+
                     <form action="/login/auth" method="post">
                         <div class="mb-3">
                             <label for="email" class="form-label fw-semibold">Email</label>

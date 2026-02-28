@@ -14,7 +14,7 @@ class UserModel extends Model
     protected $protectFields    = true;
     
     // Define the fields that can be mass assigned
-    protected $allowedFields    = ['name', 'email', 'password', 'role'];
+    protected $allowedFields    = ['name', 'email', 'password', 'role', 'reset_token', 'reset_expires_at'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
