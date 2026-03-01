@@ -57,10 +57,13 @@
                         
                         <div class="mb-4">
                             <label for="password" class="form-label fw-semibold">Password</label>
-                            <div class="input-group">
-                                <span class="input-group-text bg-white"><i class="bi bi-lock text-muted"></i></span>
-                                <input type="password" name="password" class="form-control border-start-0" id="password" placeholder="Enter password" required>
-                            </div>
+                        <div class="input-group mb-1">
+                            <span class="input-group-text bg-white"><i class="bi bi-lock text-muted"></i></span>
+                            <input type="password" name="password" class="form-control border-start-0" id="password" placeholder="Masukkan password" required>
+                        </div>
+                        <div class="text-end">
+                            <a href="/forgot" class="text-decoration-none small fw-semibold">Lupa password?</a>
+                        </div>
                         </div>
 
                         <div class="d-grid mb-3">
